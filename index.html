@@ -76,32 +76,91 @@
       background-color: #00bcd4;
       margin-top: 5px;
     }
-    .profile-container {
+   /* Nouveau layout pour la section À propos */
+    .about-wrapper {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
-      margin-bottom: 2rem;
+      gap: 4rem; /* Espace entre la photo et le texte */
+      margin-top: 2rem;
     }
-    .profile-container h1 {
-      font-size: 2.2rem;
-      color: #111111;
-      margin-top: 1rem;
+    
+    /* Le fameux effet esthétique pour la photo */
+    .profile-photo-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .profile-container h2 {
-      font-size: 1.4rem;
-      color: #00bcd4;
-      font-weight: 400;
+    .photo-wrapper {
+      position: relative;
+      width: 260px;
+      height: 260px;
     }
+    /* Le fond géométrique coloré en arrière-plan */
+    .photo-accent-bg {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 188, 212, 0.15); /* Couleur cyan transparente */
+      border: 2px dashed #00bcd4; /* Bordure stylisée */
+      border-radius: 24px; /* Coins arrondis asymétriques */
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+    /* La photo de profil principale */
     .profile-pic {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border: 3px solid #00bcd4;
-      box-shadow: 0 4px 15px rgba(0,188,212,0.2);
+      border-radius: 24px; /* Forme moderne aux coins adoucis */
+      background: #1f1f1f; /* Fond neutre sous le removebg */
+      border: 2px solid #00bcd4;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: 2; /* Passe au-dessus du fond accent */
+      transition: transform 0.3s ease;
     }
-    .about-text p {
+    
+    /* Animation au survol de la photo (Effet dynamique Pinterest) */
+    .photo-wrapper:hover .profile-pic {
+      transform: translate(-5px, -5px);
+    }
+    .photo-wrapper:hover .photo-accent-bg {
+      transform: translate(5px, 5px);
+    }
+
+    /* Ajustement du bloc texte */
+    .about-text-content {
+      flex: 2;
+    }
+    .about-text-content h1 {
+      font-size: 2.4rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+    body.dark-mode .about-text-content h1 {
+      color: #ffffff;
+    }
+    /* En mode jour clair */
+    body:not(.dark-mode) .about-text-content h1 {
+      color: #111111;
+    }
+    .about-text-content h2 {
+      font-size: 1.3rem;
+      color: #00bcd4;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .profile-location {
+      color: #999; 
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .about-text-paragraphs p {
       margin-bottom: 1rem;
       text-align: justify;
     }
@@ -226,6 +285,19 @@
       }
       nav a {
         margin: 0 0.5rem;
+      }
+      /* Ajoute ceci pour le mobile : */
+      .about-wrapper {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+      }
+      .photo-wrapper {
+        width: 200px;
+        height: 200px;
+      }
+      .about-text-paragraphs p {
+        text-align: center;
       }
     }
   </style>
