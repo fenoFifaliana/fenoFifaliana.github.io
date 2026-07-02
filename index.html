@@ -1,33 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <script>
-  const toggleButton = document.getElementById('theme-toggle');
-  const body = document.body;
-
-  // Écouter le clic sur le bouton
-  toggleButton.addEventListener('click', () => {
-    // Ajoute ou enlève la classe .dark-mode au body
-    body.classList.toggle('dark-mode');
-    
-    // Change le texte du bouton selon le mode actif
-    if (body.classList.contains('dark-mode')) {
-      toggleButton.textContent = '☀️ Mode Jour';
-    } else {
-      toggleButton.textContent = '🌙 Mode Nuit';
-    }
-  });
-</script>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XWEVKSQD8X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XWEVKSQD8X');
- </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWEVKSQD8X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XWEVKSQD8X');
+  </script>
   <meta name="google-site-verification" content="jgtkIhMNe62yRxRIDOGgUpOksHmsdKBr1qj3mjYH7Gg" />
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Feno Fifaliana Marie Clara | Gestion de Projet Digital & Communication Numérique</title>
   <meta name="description" content="Portfolio de Feno Fifaliana Marie Clara, étudiante en Master 2 CNMP. Double expertise : Gestion de projet (Cadre logique, PTA) & Développement Web / UI-UX.">
@@ -37,14 +20,17 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce lors du changement de mode */
     }
+    
+    /* 1. Style par défaut : MODE JOUR (Fond clair) */
     body {
-      background-color: #121212;
-      color: #f0f0f0;
+      background-color: #f9f9f9;
+      color: #333333;
       line-height: 1.6;
     }
     header {
-      background-color: #1f1f1f;
+      background-color: #ffffff;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -52,7 +38,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       animation: fadeInDown 1s ease-in-out;
     }
     .header-logo {
@@ -61,7 +47,7 @@
       color: #00bcd4;
     }
     nav a {
-      color: #f0f0f0;
+      color: #333333;
       text-decoration: none;
       margin-left: 1rem;
       transition: color 0.3s, transform 0.3s;
@@ -99,7 +85,7 @@
     }
     .profile-container h1 {
       font-size: 2.2rem;
-      color: #ffffff;
+      color: #111111;
       margin-top: 1rem;
     }
     .profile-container h2 {
@@ -113,7 +99,7 @@
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid #00bcd4;
-      box-shadow: 0 4px 15px rgba(0,188,212,0.3);
+      box-shadow: 0 4px 15px rgba(0,188,212,0.2);
     }
     .about-text p {
       margin-bottom: 1rem;
@@ -126,7 +112,7 @@
       margin-top: 0.75rem;
     }
     .badge {
-      background-color: #292929;
+      background-color: #f0f0f0;
       color: #00bcd4;
       padding: 0.3rem 0.8rem;
       border-radius: 20px;
@@ -138,18 +124,19 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
     }
-    .card {
-      background-color: #1f1f1f;
+    .card, .project {
+      background-color: #ffffff;
       padding: 1.5rem;
       border-radius: 8px;
       transition: transform 0.3s, background-color 0.3s;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      margin-bottom: 1rem;
     }
-    .card:hover {
+    .card:hover, .project:hover {
       transform: translateY(-5px);
-      background-color: #252525;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     }
-    .card h3 {
+    .card h3, .project h3 {
       color: #00bcd4;
       margin-bottom: 0.75rem;
     }
@@ -167,12 +154,61 @@
       margin-bottom: 0.6rem;
     }
     footer {
-      background-color: #1f1f1f;
+      background-color: #ffffff;
       text-align: center;
       padding: 1.5rem;
-      color: #999;
+      color: #666;
       margin-top: 4rem;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
     }
+
+    /* Style du bouton Mode Nuit */
+    .dark-mode-btn {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+      font-weight: 600;
+    }
+    .dark-mode-btn:hover {
+      background: #00bcd4;
+    }
+
+    /* 2. STYLE POUR LE MODE NUIT (S'active sur PC ET Mobile) */
+    body.dark-mode {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+    body.dark-mode header, body.dark-mode footer {
+      background-color: #1f1f1f;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    body.dark-mode nav a {
+      color: #f0f0f0;
+    }
+    body.dark-mode .profile-container h1 {
+      color: #ffffff;
+    }
+    body.dark-mode .card, body.dark-mode .project {
+      background-color: #1f1f1f;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    body.dark-mode .card:hover, body.dark-mode .project:hover {
+      background-color: #252525;
+    }
+    body.dark-mode .badge {
+      background-color: #292929;
+    }
+    body.dark-mode .dark-mode-btn {
+      background: #ffffff;
+      color: #333;
+    }
+
+    /* Animations */
     @keyframes fadeInUp {
       from {opacity: 0; transform: translateY(20px);}
       to {opacity: 1; transform: translateY(0);}
@@ -181,6 +217,8 @@
       from {opacity: 0; transform: translateY(-20px);}
       to {opacity: 1; transform: translateY(0);}
     }
+
+    /* Responsivité Mobile */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -189,31 +227,6 @@
       nav a {
         margin: 0 0.5rem;
       }
-      /* Style du bouton */
-.dark-mode-btn {
-    background: #333;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background 0.3s ease;
-}
-
-/* Styles quand le mode nuit est activé */
-body.dark-mode {
-    background-color: #121212; /* Fond noir/sombre */
-    color: #ffffff; /* Texte blanc */
-}
-
-/* Optionnel : Ajuste la couleur de tes cartes ou sections en mode nuit */
-body.dark-mode section, 
-body.dark-mode .project-card {
-    background-color: #1e1e1e;
-    color: #ffffff;
-    border-color: #333;
-}
     }
   </style>
 </head>
@@ -348,5 +361,21 @@ body.dark-mode .project-card {
   <footer>
     <p>&copy; 2026 Feno Fifaliana Marie Clara RAKOTOMALALA. Tous droits réservés.</p>
   </footer>
+
+  <!-- LE JAVASCRIPT REPLAGÉ TOUT EN BAS JUSTE AVANT LA FIN DU BODY -->
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        toggleButton.textContent = '☀️ Mode Jour';
+      } else {
+        toggleButton.textContent = '🌙 Mode Nuit';
+      }
+    });
+  </script>
 </body>
 </html>
