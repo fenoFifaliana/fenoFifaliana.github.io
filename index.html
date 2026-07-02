@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <script>
+  const toggleButton = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  // Écouter le clic sur le bouton
+  toggleButton.addEventListener('click', () => {
+    // Ajoute ou enlève la classe .dark-mode au body
+    body.classList.toggle('dark-mode');
+    
+    // Change le texte du bouton selon le mode actif
+    if (body.classList.contains('dark-mode')) {
+      toggleButton.textContent = '☀️ Mode Jour';
+    } else {
+      toggleButton.textContent = '🌙 Mode Nuit';
+    }
+  });
+</script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XWEVKSQD8X"></script>
 <script>
@@ -172,11 +189,37 @@
       nav a {
         margin: 0 0.5rem;
       }
+      /* Style du bouton */
+.dark-mode-btn {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+/* Styles quand le mode nuit est activé */
+body.dark-mode {
+    background-color: #121212; /* Fond noir/sombre */
+    color: #ffffff; /* Texte blanc */
+}
+
+/* Optionnel : Ajuste la couleur de tes cartes ou sections en mode nuit */
+body.dark-mode section, 
+body.dark-mode .project-card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-color: #333;
+}
     }
   </style>
 </head>
 <body>
   <header>
+    <button id="theme-toggle" class="dark-mode-btn">🌙 Mode Nuit</button>
     <div class="header-logo">FF Portfolio</div>
     <nav>
       <a href="#about">À propos</a>
