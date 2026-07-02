@@ -79,7 +79,7 @@
     }
 
     /* ==========================================================================
-       NOUVEAU LAYOUT PREMIUM : CARTE CARD STYLE PINTEREST
+       LAYOUT PREMIUM : CARTE CARD STYLE PINTEREST
        ========================================================================== */
     .pinterest-card {
       display: grid;
@@ -319,15 +319,15 @@
     }
 
     /* ==========================================================================
-       2. STYLE POUR LE MODE NUIT (Fond #5A3A2B, textes #D5B79B et #EFE2CF)
+       2. STYLE POUR LE MODE NUIT OPTIMISÉ (Fond ultra-sombre #3D2C24)
        ========================================================================== */
     body.dark-mode {
-      background-color: #5A3A2B;
-      color: #D5B79B;
+      background-color: #33241D; /* Version légèrement assombrie pour le fond global */
+      color: #EFE2CF; /* Changement majeur : petits textes passés en crème clair pour le contraste */
     }
     body.dark-mode header, body.dark-mode footer {
-      background-color: rgba(0, 0, 0, 0.2);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      background-color: #3D2C24; /* Ta couleur cible pour les grandes sections */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
     body.dark-mode nav a {
       color: #EFE2CF;
@@ -342,9 +342,9 @@
       background-color: #9A5A3D;
     }
     body.dark-mode .pinterest-card {
-      background: rgba(0, 0, 0, 0.15);
-      border: 1px solid rgba(239, 226, 207, 0.1);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      background: #3D2C24; /* Utilisation de la structure plus opaque */
+      border: 1px solid rgba(239, 226, 207, 0.08);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     }
     body.dark-mode .intro-content h1 {
       color: #EFE2CF;
@@ -353,50 +353,51 @@
       color: #9A5A3D;
     }
     body.dark-mode .profile-location {
-      color: #D5B79B;
+      color: #D5B79B; /* Teinte beige intermédiaire douce pour les détails */
     }
     body.dark-mode .bio-text p {
-      color: #D5B79B;
+      color: #EFE2CF; /* Optimisation de lisibilité maximale */
     }
     body.dark-mode .bio-text strong {
-      color: #EFE2CF;
+      color: #FFF; /* Les accents importants ressortent en blanc pur */
     }
     body.dark-mode .btn-primary {
       background: #9A5A3D;
-      color: #5A3A2B;
+      color: #33241D;
     }
     body.dark-mode .btn-primary:hover {
       background: #EFE2CF;
-      color: #5A3A2B;
+      color: #33241D;
     }
     body.dark-mode .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.04);
       color: #EFE2CF;
-      border: 1px solid rgba(239, 226, 207, 0.2);
+      border: 1px solid rgba(239, 226, 207, 0.15);
     }
     body.dark-mode .btn-secondary:hover {
       background: #9A5A3D;
-      color: #5A3A2B;
+      color: #33241D;
     }
     body.dark-mode .image-container {
-      background: linear-gradient(180deg, #5A3A2B, rgba(0,0,0,0.3));
+      background: linear-gradient(180deg, #3D2C24, rgba(0,0,0,0.4));
       border-color: #9A5A3D;
     }
     body.dark-mode .bg-blob {
       border-color: #EFE2CF;
     }
     body.dark-mode .card, body.dark-mode .project {
-      background-color: rgba(0, 0, 0, 0.12);
+      background-color: #3D2C24;
+      border: 1px solid rgba(239, 226, 207, 0.04);
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
     body.dark-mode .card:hover, body.dark-mode .project:hover {
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(61, 44, 36, 0.8);
     }
     body.dark-mode .card h3, body.dark-mode .project h3 {
       color: #9A5A3D;
     }
     body.dark-mode .badge {
-      background-color: #5A3A2B;
+      background-color: #33241D;
       color: #EFE2CF;
       border-color: #9A5A3D;
     }
@@ -408,11 +409,11 @@
     }
     body.dark-mode .dark-mode-btn {
       background: #EFE2CF;
-      color: #5A3A2B;
+      color: #33241D;
     }
     body.dark-mode .dark-mode-btn:hover {
       background: #9A5A3D;
-      color: #5A3A2B;
+      color: #33241D;
     }
 
     /* Animations */
@@ -434,7 +435,6 @@
       nav a {
         margin: 0 0.5rem;
       }
-      /* Nouvelle carte en version Mobile */
       .pinterest-card {
         grid-template-columns: 1fr;
         padding: 2rem;
@@ -479,7 +479,7 @@
     </nav>
   </header>
 
-  <!-- SECTION À PROPOS VERSION COMPLÈTE STYLE PINTEREST -->
+  <!-- SECTION À PROPOS STYLE PINTEREST -->
   <section id="about">
     <div class="pinterest-card">
       
@@ -570,7 +570,7 @@
           <li><strong>Stagiaire Gestion de projet & Développement</strong> — Chambre de Commerce et d'Industrie Fianarantsoa (2 mois · 2024)<br>
           <small>Pilotage complet d'un projet de développement applicatif : recueil des exigences, planification des sprints, réalisation technique et respect des contraintes. ✓ Application livrée dans les délais.</small></li>
           <li style="margin-top: 0.8rem;"><strong>Stagiaire - Diagnostic & Planification</strong> — JIRAMA Antsirabe (3 mois · 2024)<br>
-          <small>Diagnostic de l'infrastructure réseau, analysis approfondie des dysfonctionnements, modélisation d'un plan d'action correctif et suivi des recommandations avec les équipes internes.</small></li>
+          <small>Diagnostic de l'infrastructure réseau, analyse approfondie des dysfonctionnements, modélisation d'un plan d'action correctif et suivi des recommandations avec les équipes internes.</small></li>
         </ul>
       </div>
     </div>
