@@ -15,12 +15,18 @@
   <title>Feno Fifaliana Marie Clara | Gestion de Projet Digital & Communication Numérique</title>
   <meta name="description" content="Portfolio de Feno Fifaliana Marie Clara, étudiante en Master 2 CNMP. Double expertise : Gestion de projet (Cadre logique, PTA) & Développement Web / UI-UX.">
   <style>
+    /* Amélioration de l'expérience de défilement */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px; /* Évite que le header fixe ne cache le titre de la section */
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce lors du changement de mode */
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
     
     /* 1. Style par défaut : MODE JOUR (Fond clair #D5B79B) */
@@ -76,6 +82,11 @@
       height: 3px;
       background-color: #9A5A3D;
       margin-top: 5px;
+    }
+
+    /* Animation flash subtile lorsqu'une section est ciblée via l'ancre */
+    section:target {
+      animation: flashHighlight 1s ease-out;
     }
 
     /* ==========================================================================
@@ -154,7 +165,7 @@
     }
     .btn-primary {
       background: #9A5A3D;
-      color: #5A3A2B;
+      color: #F3E9DB; /* Modification demandée : Couleur de texte claire en mode jour */
       box-shadow: 0 10px 20px rgba(154, 90, 61, 0.2);
     }
     .btn-primary:hover {
@@ -185,19 +196,17 @@
       width: 280px;
       height: 350px;
     }
-    /* Un cadre fin et élégant qui se décale en arrière-plan */
     .bg-blob {
       position: absolute;
       width: 100%;
       height: 100%;
       background: transparent;
-      border: 2px solid #9A5A3D; /* Juste une ligne fine */
+      border: 2px solid #9A5A3D; 
       border-radius: 24px;
       top: 20px;
       left: 20px;
       z-index: 1;
       opacity: 0.8;
-      animation: none; /* On enlève l'animation de mouvement */
       transition: transform 0.4s ease;
     }
     
@@ -213,7 +222,6 @@
       background: linear-gradient(180deg, #EFE2CF, #D5B79B); 
     }
 
-    /* Effet interactif au survol */
     .art-frame:hover .image-container {
       transform: translate(-5px, -5px);
     }
@@ -281,7 +289,6 @@
       margin-bottom: 0.6rem;
     }
     
-    /* Intégration des liens de contacts */
     .info-list a, #contact a {
       color: #9A5A3D !important;
       text-decoration: none;
@@ -301,7 +308,6 @@
       box-shadow: 0 -2px 10px rgba(90, 58, 43, 0.05);
     }
 
-    /* Style du bouton Mode Nuit */
     .dark-mode-btn {
       background: #5A3A2B;
       color: #EFE2CF;
@@ -322,12 +328,18 @@
        2. STYLE POUR LE MODE NUIT OPTIMISÉ (Fond ultra-sombre #3D2C24)
        ========================================================================== */
     body.dark-mode {
-      background-color: #33241D; /* Version légèrement assombrie pour le fond global */
-      color: #EFE2CF; /* Changement majeur : petits textes passés en crème clair pour le contraste */
+      background-color: #33241D; 
+      color: #EFE2CF; 
     }
-    body.dark-mode header, body.dark-mode footer {
-      background-color: #3D2C24; /* Ta couleur cible pour les grandes sections */
+    body.dark-mode header {
+      background-color: #3D2C24; 
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    /* Modification demandée : Couleur de texte claire pour le footer en mode sombre */
+    body.dark-mode footer {
+      background-color: #3D2C24;
+      color: #EFE2CF; 
+      box-shadow: 0 -4px 15px rgba(0,0,0,0.3);
     }
     body.dark-mode nav a {
       color: #EFE2CF;
@@ -342,7 +354,7 @@
       background-color: #9A5A3D;
     }
     body.dark-mode .pinterest-card {
-      background: #3D2C24; /* Utilisation de la structure plus opaque */
+      background: #3D2C24; 
       border: 1px solid rgba(239, 226, 207, 0.08);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     }
@@ -353,17 +365,17 @@
       color: #9A5A3D;
     }
     body.dark-mode .profile-location {
-      color: #D5B79B; /* Teinte beige intermédiaire douce pour les détails */
+      color: #D5B79B; 
     }
     body.dark-mode .bio-text p {
-      color: #EFE2CF; /* Optimisation de lisibilité maximale */
+      color: #EFE2CF; 
     }
     body.dark-mode .bio-text strong {
-      color: #FFF; /* Les accents importants ressortent en blanc pur */
+      color: #FFF; 
     }
     body.dark-mode .btn-primary {
       background: #9A5A3D;
-      color: #33241D;
+      color: #33241D; /* Revient à un contraste sombre sur bouton brique en mode nuit */
     }
     body.dark-mode .btn-primary:hover {
       background: #EFE2CF;
@@ -416,7 +428,7 @@
       color: #33241D;
     }
 
-    /* Animations */
+    /* Animations de base */
     @keyframes fadeInUp {
       from {opacity: 0; transform: translateY(20px);}
       to {opacity: 1; transform: translateY(0);}
@@ -424,6 +436,12 @@
     @keyframes fadeInDown {
       from {opacity: 0; transform: translateY(-20px);}
       to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Animation d'impact pour l'arrivée sur l'ancre */
+    @keyframes flashHighlight {
+      0% { background-color: rgba(154, 90, 61, 0.25); border-radius: 12px; }
+      100% { background-color: transparent; }
     }
 
     /* Responsivité Mobile */
@@ -443,7 +461,7 @@
         border-radius: 24px;
       }
       .photo-showcase {
-        order: -1; /* Remonte la photo tout en haut sur mobile */
+        order: -1; 
       }
       .art-frame {
         width: 220px;
@@ -485,15 +503,15 @@
       
       <!-- Bloc de gauche : Textes et Boutons -->
       <div class="intro-content">
-        <span class="status-badge"> Ouverte à toutes opportunités professionnelles </span>
+        <span class="status-badge">✨ Disponible pour un Stage de 6 mois</span>
         <h1>Feno Fifaliana Marie Clara RAKOTOMALALA</h1>
         <p class="subtitle">Gestion de Projet Digital & Communication Numérique</p>
         <p class="profile-location">Fianarantsoa / Antsirabe, Madagascar | Ouverte à toutes opportunités professionnelles (Stage / Emploi)</p>
         
         <div class="bio-text">
-          <p>Actuellement en <strong>Master 2 Management de Projet et Communication Numérique (CNMP) à l'EMIT</strong> et forte d'un parcours initial en <strong>Développement d'Applications (DAII)</strong>, je possède un profil résolument polyvalent à la croisée de l'ingénierie logicielle, du design d'interaction (UI/UX) et de la direction stratégique de projets.</p>
-          <p>Ma force réside dans cette double culture : une solide aisance technique avec l'écosystème numérique (programmation web, bases de données, maquettage) combinée à une maîtrise rigoureuse des outils de planification et de management de projets (Cadre logique, Plan de Travail Annuel PTA, Suivi-Évaluation). Passionnée par l'innovation technologique, la communication d'impact et les dynamiques de développement durable (notamment les ODD 2 et 12), j'ai l'habitude de concevoir des solutions globales adaptées aux besoins du terrain, du secteur public aux organisations internationales en passant par les entreprises privées.</p>
-          <p>Dotée d'un esprit analytique et d'une grande rigueur opérationnelle, je suis activement à l'écoute du marché, disponible immédiatement pour étudier toute proposition de stage de fin d'études, de collaboration ou d'embauche au sein de vos équipes pour piloter et dynamiser vos futurs programmes numériques et durables.</p>
+          <p>Actuellement en <strong>Master 2 Management de Projet et Communication Numérique (CNMP) à l'EMIT</strong> et forte d'un parcours initial en <strong>Développement d'Applications (DAII)</strong>, je possède un profil polyvalent à la croisée de l'ingénierie logicielle, du design UI/UX et de la direction stratégique de projets.</p>
+          <p>Ma force réside dans cette double culture : une solide aisance technique (développement web, maquettage) combinée à une maîtrise rigoureuse des outils de planification (Cadre logique, PTA, Suivi-Évaluation). Passionnée par l'innovation et le développement durable (ODD 2 & 12), je conçois des solutions adaptées aux réalités du terrain.</p>
+          <p>Dynamique et rigoureuse, je suis disponible immédiatement pour un <strong>stage de fin d'études de 6 mois</strong> ou toute opportunité de collaboration pour piloter vos projets numériques et durables.</p>
         </div>
         
         <div class="action-buttons">
@@ -561,7 +579,7 @@
         <h3>Formations</h3>
         <ul>
           <li><strong>Master 2 (En cours)</strong> — Communication Numérique & Management de Projet (CNMP), EMIT Fianarantsoa (2025-2026)</li>
-          <li><strong>Licence (Diplômée)</strong> — Développement d'Applications Intranet & Internet (DAII), EMIT Fianarantsoa (Cursus de 2021 à 2024 axé programmation, base de données et intégration web).</li>
+          <li><strong>Licence (Diplômée)</strong> — Développement d'Applications Intranet & Internet (DAII), EMIT Fianarantsoa.</li>
         </ul>
       </div>
       <div class="card">
