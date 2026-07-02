@@ -23,14 +23,14 @@
       transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce lors du changement de mode */
     }
     
-    /* 1. Style par défaut : MODE JOUR (Fond clair) */
+    /* 1. Style par défaut : MODE JOUR (Fond clair #D5B79B) */
     body {
-      background-color: #f9f9f9;
-      color: #333333;
+      background-color: #D5B79B;
+      color: #5A3A2B;
       line-height: 1.6;
     }
     header {
-      background-color: #ffffff;
+      background-color: #EFE2CF;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -38,22 +38,23 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(90, 58, 43, 0.1);
       animation: fadeInDown 1s ease-in-out;
     }
     .header-logo {
       font-size: 1.4rem;
       font-weight: bold;
-      color: #F5EBE0;
+      color: #9A5A3D;
     }
     nav a {
-      color: #333333;
+      color: #5A3A2B;
       text-decoration: none;
       margin-left: 1rem;
       transition: color 0.3s, transform 0.3s;
+      font-weight: 500;
     }
     nav a:hover {
-      color: #F5EBE0;
+      color: #9A5A3D;
       transform: scale(1.1);
     }
     section {
@@ -65,7 +66,7 @@
     .section-title {
       font-size: 2rem;
       margin-bottom: 1.5rem;
-      color: #F5EBE0;
+      color: #5A3A2B;
       position: relative;
     }
     .section-title::after {
@@ -73,7 +74,7 @@
       display: block;
       width: 60px;
       height: 3px;
-      background-color: #F5EBE0;
+      background-color: #9A5A3D;
       margin-top: 5px;
     }
 
@@ -84,20 +85,20 @@
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 3.5rem;
-      background: #ffffff;
+      background: #EFE2CF;
       padding: 3.5rem;
       border-radius: 32px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 20px 40px rgba(90, 58, 43, 0.08);
       align-items: center;
       margin-top: 1rem;
-      border: 1px solid rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(90, 58, 43, 0.1);
     }
 
     /* Badge de statut */
     .status-badge {
       display: inline-block;
-      background: rgba(0, 188, 212, 0.08);
-      color: #F5EBE0;
+      background: rgba(154, 90, 61, 0.12);
+      color: #9A5A3D;
       padding: 0.4rem 1rem;
       border-radius: 100px;
       font-size: 0.85rem;
@@ -113,25 +114,28 @@
       font-weight: 800;
       margin-bottom: 0.75rem;
       letter-spacing: -1px;
-      color: #111111;
+      color: #5A3A2B;
     }
     .subtitle {
       font-size: 1.25rem;
-      color: #F5EBE0;
+      color: #9A5A3D;
       font-weight: 600;
       margin-bottom: 1.5rem;
     }
     .profile-location {
-      color: #777; 
+      color: #C07F5A; 
       font-size: 0.9rem;
       margin-bottom: 1.5rem;
     }
     .bio-text p {
       font-size: 1.05rem;
       line-height: 1.7;
-      color: #555555;
+      color: #5A3A2B;
       margin-bottom: 1.2rem;
       text-align: justify;
+    }
+    .bio-text strong {
+      color: #9A5A3D;
     }
 
     /* Boutons d'action esthétiques */
@@ -149,24 +153,25 @@
       font-size: 0.95rem;
     }
     .btn-primary {
-      background: #F5EBE0;
-      color: #fff;
-      box-shadow: 0 10px 20px rgba(0, 188, 212, 0.2);
+      background: #9A5A3D;
+      color: #5A3A2B;
+      box-shadow: 0 10px 20px rgba(154, 90, 61, 0.2);
     }
     .btn-primary:hover {
-      background: #00acc1;
+      background: #5A3A2B;
+      color: #EFE2CF;
       transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(0, 188, 212, 0.3);
+      box-shadow: 0 12px 24px rgba(90, 58, 43, 0.3);
     }
     .btn-secondary {
-      background: #f2f2f2;
-      color: #333;
-      border: 1px solid #e0e0e0;
+      background: #D5B79B;
+      color: #5A3A2B;
+      border: 1px solid rgba(90, 58, 43, 0.2);
     }
     .btn-secondary:hover {
       transform: translateY(-2px);
-      background: #eaestil;
-      background: #e8e8e8;
+      background: #C07F5A;
+      color: #EFE2CF;
     }
 
     /* Bloc Image Artistique Asymétrique (Côté droit) */
@@ -186,7 +191,7 @@
       width: 100%;
       height: 100%;
       background: transparent;
-      border: 2px solid #F5EBE0; /* Juste une ligne fine */
+      border: 2px solid #9A5A3D; /* Juste une ligne fine */
       border-radius: 24px;
       top: 20px;
       left: 20px;
@@ -203,14 +208,9 @@
       z-index: 2;
       border-radius: 24px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-      /* Un dégradé de fond subtil pour mettre en valeur le removebg */
-      background: linear-gradient(180deg, #1f1f1f, #2a2a2a); 
-    }
-    body:not(.dark-mode) .image-container {
-      background: linear-gradient(180deg, #f5f5f5, #eaeaea);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+      border: 1px solid rgba(90, 58, 43, 0.2);
+      box-shadow: 0 15px 35px rgba(90, 58, 43, 0.15);
+      background: linear-gradient(180deg, #EFE2CF, #D5B79B); 
     }
 
     /* Effet interactif au survol */
@@ -230,13 +230,6 @@
     .art-frame:hover .image-container img {
       transform: scale(1.06);
     }
-
-    /* Animation de morphing pour le fond asymétrique */
-    @keyframes morphing {
-      0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-      50% { border-radius: 60% 40% 50% 70% / 50% 60% 40% 60%; }
-      100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-    }
     /* ========================================================================== */
 
     .badge-container {
@@ -246,12 +239,12 @@
       margin-top: 0.75rem;
     }
     .badge {
-      background-color: #f0f0f0;
-      color: #F5EBE0;
+      background-color: #D5B79B;
+      color: #5A3A2B;
       padding: 0.3rem 0.8rem;
       border-radius: 20px;
       font-size: 0.85rem;
-      border: 1px solid #F5EBE0;
+      border: 1px solid #9A5A3D;
     }
     .grid-layout {
       display: grid;
@@ -259,19 +252,19 @@
       gap: 1.5rem;
     }
     .card, .project {
-      background-color: #ffffff;
+      background-color: #EFE2CF;
       padding: 1.5rem;
       border-radius: 8px;
       transition: transform 0.3s, background-color 0.3s;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 15px rgba(90, 58, 43, 0.05);
       margin-bottom: 1rem;
     }
     .card:hover, .project:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 20px rgba(90, 58, 43, 0.12);
     }
     .card h3, .project h3 {
-      color: #F5EBE0;
+      color: #9A5A3D;
       margin-bottom: 0.75rem;
     }
     .card ul {
@@ -287,20 +280,32 @@
     .info-list li {
       margin-bottom: 0.6rem;
     }
+    
+    /* Intégration des liens de contacts */
+    .info-list a, #contact a {
+      color: #9A5A3D !important;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    .info-list a:hover, #contact a:hover {
+      color: #5A3A2B !important;
+    }
+
     footer {
-      background-color: #ffffff;
+      background-color: #EFE2CF;
       text-align: center;
       padding: 1.5rem;
-      color: #666;
+      color: #5A3A2B;
       margin-top: 4rem;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 -2px 10px rgba(90, 58, 43, 0.05);
     }
 
     /* Style du bouton Mode Nuit */
     .dark-mode-btn {
-      background: #333;
-      color: #fff;
-      border: none;
+      background: #5A3A2B;
+      color: #EFE2CF;
+      border: 1px solid #9A5A3D;
       padding: 0.5rem 1rem;
       border-radius: 20px;
       cursor: pointer;
@@ -309,57 +314,105 @@
       font-weight: 600;
     }
     .dark-mode-btn:hover {
-      background: #F5EBE0;
+      background: #9A5A3D;
+      color: #5A3A2B;
     }
 
-    /* 2. STYLE POUR LE MODE NUIT (Adapté à la nouvelle carte) */
+    /* ==========================================================================
+       2. STYLE POUR LE MODE NUIT (Fond #5A3A2B, textes #D5B79B et #EFE2CF)
+       ========================================================================== */
     body.dark-mode {
-      background-color: #121212;
-      color: #f0f0f0;
+      background-color: #5A3A2B;
+      color: #D5B79B;
     }
     body.dark-mode header, body.dark-mode footer {
-      background-color: #1f1f1f;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      background-color: rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
     }
     body.dark-mode nav a {
-      color: #f0f0f0;
+      color: #EFE2CF;
+    }
+    body.dark-mode nav a:hover {
+      color: #9A5A3D;
+    }
+    body.dark-mode .section-title {
+      color: #EFE2CF;
+    }
+    body.dark-mode .section-title::after {
+      background-color: #9A5A3D;
     }
     body.dark-mode .pinterest-card {
-      background: #1f1f1f;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(239, 226, 207, 0.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
     body.dark-mode .intro-content h1 {
-      color: #ffffff;
+      color: #EFE2CF;
+    }
+    body.dark-mode .subtitle {
+      color: #9A5A3D;
+    }
+    body.dark-mode .profile-location {
+      color: #D5B79B;
     }
     body.dark-mode .bio-text p {
-      color: #b0b0b0;
+      color: #D5B79B;
+    }
+    body.dark-mode .bio-text strong {
+      color: #EFE2CF;
+    }
+    body.dark-mode .btn-primary {
+      background: #9A5A3D;
+      color: #5A3A2B;
+    }
+    body.dark-mode .btn-primary:hover {
+      background: #EFE2CF;
+      color: #5A3A2B;
     }
     body.dark-mode .btn-secondary {
       background: rgba(255, 255, 255, 0.05);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #EFE2CF;
+      border: 1px solid rgba(239, 226, 207, 0.2);
     }
     body.dark-mode .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: #9A5A3D;
+      color: #5A3A2B;
     }
     body.dark-mode .image-container {
-      background: #1a1a1a;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      background: linear-gradient(180deg, #5A3A2B, rgba(0,0,0,0.3));
+      border-color: #9A5A3D;
+    }
+    body.dark-mode .bg-blob {
+      border-color: #EFE2CF;
     }
     body.dark-mode .card, body.dark-mode .project {
-      background-color: #1f1f1f;
+      background-color: rgba(0, 0, 0, 0.12);
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
     body.dark-mode .card:hover, body.dark-mode .project:hover {
-      background-color: #252525;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    body.dark-mode .card h3, body.dark-mode .project h3 {
+      color: #9A5A3D;
     }
     body.dark-mode .badge {
-      background-color: #292929;
+      background-color: #5A3A2B;
+      color: #EFE2CF;
+      border-color: #9A5A3D;
+    }
+    body.dark-mode .info-list a, body.dark-mode #contact a {
+      color: #EFE2CF !important;
+    }
+    body.dark-mode .info-list a:hover, body.dark-mode #contact a:hover {
+      color: #9A5A3D !important;
     }
     body.dark-mode .dark-mode-btn {
-      background: #ffffff;
-      color: #333;
+      background: #EFE2CF;
+      color: #5A3A2B;
+    }
+    body.dark-mode .dark-mode-btn:hover {
+      background: #9A5A3D;
+      color: #5A3A2B;
     }
 
     /* Animations */
@@ -515,9 +568,9 @@
         <h3>Expériences de Terrain</h3>
         <ul>
           <li><strong>Stagiaire Gestion de projet & Développement</strong> — Chambre de Commerce et d'Industrie Fianarantsoa (2 mois · 2024)<br>
-          <small style="color: #00bcd4;">Pilotage complet d'un projet de développement applicatif : recueil des exigences, planification des sprints, réalisation technique et respect des contraintes. ✓ Application livrée dans les délais.</small></li>
+          <small>Pilotage complet d'un projet de développement applicatif : recueil des exigences, planification des sprints, réalisation technique et respect des contraintes. ✓ Application livrée dans les délais.</small></li>
           <li style="margin-top: 0.8rem;"><strong>Stagiaire - Diagnostic & Planification</strong> — JIRAMA Antsirabe (3 mois · 2024)<br>
-          <small style="color: #00bcd4;">Diagnostic de l'infrastructure réseau, analyse approfondie des dysfonctionnements, modélisation d'un plan d'action correctif et suivi des recommandations avec les équipes internes.</small></li>
+          <small>Diagnostic de l'infrastructure réseau, analysis approfondie des dysfonctionnements, modélisation d'un plan d'action correctif et suivi des recommandations avec les équipes internes.</small></li>
         </ul>
       </div>
     </div>
@@ -528,7 +581,7 @@
     <div class="projects">
       <div class="project">
         <h3>Projet AGRI-FIANARA</h3>
-        <span style="font-size: 0.8rem; color: #00bcd4; font-weight: bold;">MANAGEMENT DURABLE</span>
+        <span style="font-size: 0.8rem; font-weight: bold;">MANAGEMENT DURABLE</span>
         <p style="margin-top: 0.5rem; font-size: 0.95rem;">Conception globale d'un centre de commercialisation agricole à fort impact local visant à réduire les pertes post-récolte (Aligné ODD 2 et ODD 12).</p>
         <div class="badge-container">
           <span class="badge">Cadre logique</span>
@@ -540,7 +593,7 @@
 
       <div class="project">
         <h3>Application Métier CCI</h3>
-        <span style="font-size: 0.8rem; color: #00bcd4; font-weight: bold;">DÉVELOPPEMENT LOGICIEL</span>
+        <span style="font-size: 0.8rem; font-weight: bold;">DÉVELOPPEMENT LOGICIEL</span>
         <p style="margin-top: 0.5rem; font-size: 0.95rem;">Conception d'une application de bureau dédiée à la gestion centralisée et au suivi des opérateurs économiques pour la Chambre de Commerce et d'Industrie.</p>
         <div class="badge-container">
           <span class="badge">UML / Base de données</span>
@@ -556,8 +609,8 @@
     <div class="card">
       <p style="margin-bottom: 1rem;">Je suis disponible immédiatement pour étudier toute forme d'intégration (<strong>emploi, projet de consultance ou stage de 6 mois</strong>) au sein de vos structures.</p>
       <ul class="info-list">
-        <li><strong>Téléphone :</strong> <a href="tel:+261345315007" style="color:#00bcd4">+261 34 53 15 00 7</a></li>
-        <li><strong>E-mail :</strong> <a href="mailto:rakotomalalafifa@gmail.com" style="color:#00bcd4; font-weight: bold;">rakotomalalafifa@gmail.com</a></li>
+        <li><strong>Téléphone :</strong> <a href="tel:+261345315007">+261 34 53 15 00 7</a></li>
+        <li><strong>E-mail :</strong> <a href="mailto:rakotomalalafifa@gmail.com">rakotomalalafifa@gmail.com</a></li>
       </ul>
     </div>
   </section>
