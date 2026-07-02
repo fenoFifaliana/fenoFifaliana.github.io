@@ -76,94 +76,154 @@
       background-color: #00bcd4;
       margin-top: 5px;
     }
-   /* Nouveau layout pour la section À propos */
-    .about-wrapper {
-      display: flex;
+
+    /* ==========================================================================
+       NOUVEAU LAYOUT PREMIUM : CARTE CARD STYLE PINTEREST
+       ========================================================================== */
+    .pinterest-card {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3.5rem;
+      background: #ffffff;
+      padding: 3.5rem;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
       align-items: center;
-      gap: 4rem; /* Espace entre la photo et le texte */
-      margin-top: 2rem;
+      margin-top: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    /* Badge de statut */
+    .status-badge {
+      display: inline-block;
+      background: rgba(0, 188, 212, 0.08);
+      color: #00acc1;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
     }
     
-    /* Le fameux effet esthétique pour la photo */
-    .profile-photo-container {
-      flex: 1;
+    /* Contenu textuel de l'intro */
+    .intro-content h1 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      letter-spacing: -1px;
+      color: #111111;
+    }
+    .subtitle {
+      font-size: 1.25rem;
+      color: #00bcd4;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .profile-location {
+      color: #777; 
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .bio-text p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #555555;
+      margin-bottom: 1.2rem;
+      text-align: justify;
+    }
+
+    /* Boutons d'action esthétiques */
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .btn-primary, .btn-secondary {
+      padding: 0.8rem 2rem;
+      border-radius: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+    .btn-primary {
+      background: #00bcd4;
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(0, 188, 212, 0.2);
+    }
+    .btn-primary:hover {
+      background: #00acc1;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 188, 212, 0.3);
+    }
+    .btn-secondary {
+      background: #f2f2f2;
+      color: #333;
+      border: 1px solid #e0e0e0;
+    }
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: #eaestil;
+      background: #e8e8e8;
+    }
+
+    /* Bloc Image Artistique Asymétrique (Côté droit) */
+    .photo-showcase {
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .photo-wrapper {
+    .art-frame {
       position: relative;
-      width: 260px;
-      height: 260px;
+      width: 280px;
+      height: 350px;
     }
-    /* Le fond géométrique coloré en arrière-plan */
-    .photo-accent-bg {
+    /* La forme fluide mouvante en arrière-plan */
+    .bg-blob {
       position: absolute;
-      top: 20px;
-      left: 20px;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 188, 212, 0.15); /* Couleur cyan transparente */
-      border: 2px dashed #00bcd4; /* Bordure stylisée */
-      border-radius: 24px; /* Coins arrondis asymétriques */
+      background: linear-gradient(135deg, #00bcd4, #006064);
+      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      top: 15px;
+      left: 15px;
       z-index: 1;
-      transition: transform 0.3s ease;
+      opacity: 0.15;
+      animation: morphing 8s infinite ease-in-out;
     }
-    /* La photo de profil principale */
-    .profile-pic {
-      position: absolute;
-      top: 0;
-      left: 0;
+    /* Conteneur principal de l'image */
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 2px solid #00bcd4;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      background: #fcfcfc;
+    }
+    .image-container img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 24px; /* Forme moderne aux coins adoucis */
-      background: #1f1f1f; /* Fond neutre sous le removebg */
-      border: 2px solid #00bcd4;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      z-index: 2; /* Passe au-dessus du fond accent */
-      transition: transform 0.3s ease;
+      transform: scale(1.01);
+      transition: transform 0.5s ease;
     }
-    
-    /* Animation au survol de la photo (Effet dynamique Pinterest) */
-    .photo-wrapper:hover .profile-pic {
-      transform: translate(-5px, -5px);
-    }
-    .photo-wrapper:hover .photo-accent-bg {
-      transform: translate(5px, 5px);
+    .art-frame:hover .image-container img {
+      transform: scale(1.06);
     }
 
-    /* Ajustement du bloc texte */
-    .about-text-content {
-      flex: 2;
+    /* Animation de morphing pour le fond asymétrique */
+    @keyframes morphing {
+      0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+      50% { border-radius: 60% 40% 50% 70% / 50% 60% 40% 60%; }
+      100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
     }
-    .about-text-content h1 {
-      font-size: 2.4rem;
-      color: #ffffff;
-      margin-bottom: 0.5rem;
-    }
-    body.dark-mode .about-text-content h1 {
-      color: #ffffff;
-    }
-    /* En mode jour clair */
-    body:not(.dark-mode) .about-text-content h1 {
-      color: #111111;
-    }
-    .about-text-content h2 {
-      font-size: 1.3rem;
-      color: #00bcd4;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-    .profile-location {
-      color: #999; 
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-    }
-    .about-text-paragraphs p {
-      margin-bottom: 1rem;
-      text-align: justify;
-    }
+    /* ========================================================================== */
+
     .badge-container {
       display: flex;
       flex-wrap: wrap;
@@ -237,7 +297,7 @@
       background: #00bcd4;
     }
 
-    /* 2. STYLE POUR LE MODE NUIT (S'active sur PC ET Mobile) */
+    /* 2. STYLE POUR LE MODE NUIT (Adapté à la nouvelle carte) */
     body.dark-mode {
       background-color: #121212;
       color: #f0f0f0;
@@ -249,8 +309,28 @@
     body.dark-mode nav a {
       color: #f0f0f0;
     }
-    body.dark-mode .profile-container h1 {
+    body.dark-mode .pinterest-card {
+      background: #1f1f1f;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    body.dark-mode .intro-content h1 {
       color: #ffffff;
+    }
+    body.dark-mode .bio-text p {
+      color: #b0b0b0;
+    }
+    body.dark-mode .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    body.dark-mode .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    body.dark-mode .image-container {
+      background: #1a1a1a;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
     body.dark-mode .card, body.dark-mode .project {
       background-color: #1f1f1f;
@@ -286,17 +366,33 @@
       nav a {
         margin: 0 0.5rem;
       }
-      /* Ajoute ceci pour le mobile : */
-      .about-wrapper {
-        flex-direction: column;
-        gap: 3rem;
+      /* Nouvelle carte en version Mobile */
+      .pinterest-card {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+        gap: 2.5rem;
+        text-align: center;
+        border-radius: 24px;
+      }
+      .photo-showcase {
+        order: -1; /* Remonte la photo tout en haut sur mobile */
+      }
+      .art-frame {
+        width: 220px;
+        height: 280px;
+      }
+      .intro-content h1 {
+        font-size: 2.1rem;
+      }
+      .bio-text p {
         text-align: center;
       }
-      .photo-wrapper {
-        width: 200px;
-        height: 200px;
+      .action-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
       }
-      .about-text-paragraphs p {
+      .btn-primary, .btn-secondary {
+        width: 100%;
         text-align: center;
       }
     }
@@ -315,18 +411,39 @@
     </nav>
   </header>
 
+  <!-- SECTION À PROPOS VERSION COMPLÈTE STYLE PINTEREST -->
   <section id="about">
-    <div class="profile-container">
-      <img src="IMG_20240731_141905-removebg-preview.png" alt="Feno Fifaliana Marie Clara RAKOTOMALALA" class="profile-pic">
-      <h1>Feno Fifaliana Marie Clara RAKOTOMALALA</h1>
-      <h2>Gestion de Projet Digital & Communication Numérique</h2>
-      <p style="color: #999; margin-top: 0.5rem;">Fianarantsoa / Antsirabe, Madagascar | Ouverte à toutes opportunités professionnelles (Stage / Emploi)</p>
-    </div>
-    
-    <div class="about-text">
-      <p>Actuellement en <strong>Master 2 Management de Projet et Communication Numérique (CNMP) à l'EMIT</strong> et forte d'un parcours initial en <strong>Développement d'Applications (DAII)</strong>, je possède un profil résolument polyvalent à la croisée de l'ingénierie logicielle, du design d'interaction (UI/UX) et de la direction stratégique de projets.</p>
-      <p>Ma force réside dans cette double culture : une solide aisance technique avec l'écosystème numérique (programmation web, bases de données, maquettage) combinée à une maîtrise rigoureuse des outils de planification et de management de projets (Cadre logique, Plan de Travail Annuel PTA, Suivi-Évaluation). Passionnée par l'innovation technologique, la communication d'impact et les dynamiques de développement durable (notamment les ODD 2 et 12), j'ai l'habitude de concevoir des solutions globales adaptées aux besoins du terrain, du secteur public aux organisations internationales en passant par les entreprises privées.</p>
-      <p>Dotée d'un esprit analytique et d'une grande rigueur opérationnelle, je suis activement à l'écoute du marché, disponible immédiatement pour étudier toute proposition de stage de fin d'études, de collaboration ou d'embauche au sein de vos équipes pour piloter et dynamiser vos futurs programmes numériques et durables.</p>
+    <div class="pinterest-card">
+      
+      <!-- Bloc de gauche : Textes et Boutons -->
+      <div class="intro-content">
+        <span class="status-badge">✨ Disponible pour un Stage de 6 mois</span>
+        <h1>Feno Fifaliana Marie Clara RAKOTOMALALA</h1>
+        <p class="subtitle">Gestion de Projet Digital & Communication Numérique</p>
+        <p class="profile-location">Fianarantsoa / Antsirabe, Madagascar | Ouverte à toutes opportunités professionnelles (Stage / Emploi)</p>
+        
+        <div class="bio-text">
+          <p>Actuellement en <strong>Master 2 Management de Projet et Communication Numérique (CNMP) à l'EMIT</strong> et forte d'un parcours initial en <strong>Développement d'Applications (DAII)</strong>, je possède un profil résolument polyvalent à la croisée de l'ingénierie logicielle, du design d'interaction (UI/UX) et de la direction stratégique de projets.</p>
+          <p>Ma force réside dans cette double culture : une solide aisance technique avec l'écosystème numérique (programmation web, bases de données, maquettage) combinée à une maîtrise rigoureuse des outils de planification et de management de projets (Cadre logique, Plan de Travail Annuel PTA, Suivi-Évaluation). Passionnée par l'innovation technologique, la communication d'impact et les dynamiques de développement durable (notamment les ODD 2 et 12), j'ai l'habitude de concevoir des solutions globales adaptées aux besoins du terrain, du secteur public aux organisations internationales en passant par les entreprises privées.</p>
+          <p>Dotée d'un esprit analytique et d'une grande rigueur opérationnelle, je suis activement à l'écoute du marché, disponible immédiatement pour étudier toute proposition de stage de fin d'études, de collaboration ou d'embauche au sein de vos équipes pour piloter et dynamiser vos futurs programmes numériques et durables.</p>
+        </div>
+        
+        <div class="action-buttons">
+          <a href="#contact" class="btn-primary">Me contacter</a>
+          <a href="#projects" class="btn-secondary">Découvrir mes projets</a>
+        </div>
+      </div>
+
+      <!-- Bloc de droite : Photo asymétrique surélevée -->
+      <div class="photo-showcase">
+        <div class="art-frame">
+          <div class="bg-blob"></div>
+          <div class="image-container">
+            <img src="IMG_20240731_141905-removebg-preview.png" alt="Feno Fifaliana Marie Clara RAKOTOMALALA">
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -424,7 +541,7 @@
     <div class="card">
       <p style="margin-bottom: 1rem;">Je suis disponible immédiatement pour étudier toute forme d'intégration (<strong>emploi, projet de consultance ou stage de 6 mois</strong>) au sein de vos structures.</p>
       <ul class="info-list">
-        <li><strong>Téléphone :</strong> <a href="tel:+261345315007" style="color:#00bcd4">+261 34 53 150 07</a></li>
+        <li><strong>Téléphone :</strong> <a href="tel:+261345315007" style="color:#00bcd4">+261 34 53 15 00 7</a></li>
         <li><strong>E-mail :</strong> <a href="mailto:rakotomalalafifa@gmail.com" style="color:#00bcd4; font-weight: bold;">rakotomalalafifa@gmail.com</a></li>
       </ul>
     </div>
@@ -434,7 +551,6 @@
     <p>&copy; 2026 Feno Fifaliana Marie Clara RAKOTOMALALA. Tous droits réservés.</p>
   </footer>
 
-  <!-- LE JAVASCRIPT REPLAGÉ TOUT EN BAS JUSTE AVANT LA FIN DU BODY -->
   <script>
     const toggleButton = document.getElementById('theme-toggle');
     const body = document.body;
